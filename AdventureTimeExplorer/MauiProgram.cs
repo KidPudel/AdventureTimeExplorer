@@ -1,4 +1,6 @@
-﻿namespace AdventureTimeExplorer;
+﻿using AdventureTimeExplorer.Services;
+
+namespace AdventureTimeExplorer;
 
 public static class MauiProgram
 {
@@ -12,6 +14,10 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+
+		builder.Services.AddSingleton<ICharactersService, CharacterService>();
+		builder.Services.AddSingleton<CharacterViewModel>();
+		builder.Services.AddSingleton<MainPage>();
 
 		return builder.Build();
 	}
